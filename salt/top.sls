@@ -19,7 +19,9 @@ institutes:
     - ides.eclipse
     - java.java-7
     - libreoffice
-    # - network
+    - network.freerdp
+    - network.ssh.client
+    - network.ssh.server
     - nodejs
     - php
     - provisioning.puppet
@@ -32,8 +34,6 @@ institutes:
     - texteditors.vim
     - ubuntu
     - utilities.logrotate
-    - utilities.ssh.client
-    - utilities.ssh.server
     - versionControl.subversion
     - versionControl.mercurial
     - versionControl.git
