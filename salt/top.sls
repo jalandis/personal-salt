@@ -9,8 +9,8 @@ institutes:
 
     # mariadb and mysql cannot be installed together
     # Removal is a prerequisite of install
-    # - databases.mariadb
-    - databases.mysql
+    - databases.mariadb
+    # - databases.mysql
 
     - databases.mongodb
     - databases.postgres
@@ -32,6 +32,8 @@ institutes:
     - ubuntu
     - utilities.logrotate
     - utilities.icedtea
+    - utilities.ssh.client
+    - utilities.ssh.server
     - versionControl.subversion
     - versionControl.mercurial
     - versionControl.git
