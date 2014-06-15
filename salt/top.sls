@@ -14,6 +14,7 @@ institutes:
     - databases.mongodb
     - databases.postgres
     # - databases.sqldeveloper
+    - ides.eclipse
     - java.java-7
     - libreoffice
     # - network
@@ -26,6 +27,7 @@ institutes:
     - texteditors.sublime
     - texteditors.atom
     - utilities.logrotate
+    - utilities.icedtea
     - versionControl.subversion
     - versionControl.mercurial
     - versionControl.git
