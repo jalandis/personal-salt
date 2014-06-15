@@ -20,8 +20,10 @@ institutes:
     - java.java-7
     - libreoffice
     - network.freerdp
+    - network.nmap
     - network.ssh.client
     - network.ssh.server
+    - network.wireshark
     - nodejs
     - php
     - provisioning.puppet
