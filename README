@@ -1,6 +1,7 @@
-README
+A collection of state files for testing OS upgrades and different development environments.
 
-Creation of base box :
+** Creation of Base Box **
+
 1. Mount iso in virtualbox
 2. Install OS (download updates)
 3. Create vagrant/vagrant user
@@ -34,5 +35,6 @@ Creation of base box :
 9. Package base box
      - vagrant package --base my-virtual-machine --output name.box
 
-Base boxes can be found at:
+** Base Boxes **
+
 https://vagrantbox.es
