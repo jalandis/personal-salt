@@ -22,6 +22,7 @@ institutes:
     - provisioning.puppet
     - provisioning.salt.minion
     - provisioning.salt.master
+    - python
     - texteditors.sublime
     - texteditors.atom
     - utilities.logrotate
