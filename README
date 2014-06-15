@@ -38,3 +38,24 @@ A collection of state files for testing OS upgrades and different development en
 ** Base Boxes **
 
 https://vagrantbox.es
+
+** TODO **
+
+1. PHP Oracle Extension
+2. Oracle Client
+3. PHP MsSQL Extension
+4. MsSQL Driver
+5. Android
+6. Ubuntu Development SDK
+7. Apache
+8. mariaDB
+9. mongodb
+10. mysql
+11. java-6
+12. eclipse
+13. phpstorm
+14. chef
+15. puppet
+16. salt
+17. python
+18. icedtea
