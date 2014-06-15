@@ -6,6 +6,7 @@ institutes:
     # - backup
     - browsers.chrome
     - browsers.firefox
+    - browsers.icedtea
 
     # mariadb and mysql cannot be installed together
     # Removal is a prerequisite of install
@@ -31,7 +32,6 @@ institutes:
     - texteditors.vim
     - ubuntu
     - utilities.logrotate
-    - utilities.icedtea
     - utilities.ssh.client
     - utilities.ssh.server
     - versionControl.subversion
