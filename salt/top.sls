@@ -29,6 +29,7 @@ institutes:
     - texteditors.atom
     - texteditors.sublime
     - texteditors.vim
+    - ubuntu
     - utilities.logrotate
     - utilities.icedtea
     - versionControl.subversion
