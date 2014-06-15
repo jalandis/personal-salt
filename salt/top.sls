@@ -1,7 +1,7 @@
 institutes:
   'os:Ubuntu':
     - match: grain
-    # - android
+    - android.studio
     - apache
     # - backup
     - browsers.chrome
