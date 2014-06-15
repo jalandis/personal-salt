@@ -3,9 +3,8 @@
     'default': 'Debian',
 }) %}
 
-include:
-  - databases.mysql.remove
-
-Maria DB Latest:
-  pkg.latest:
+Maria DB Removal:
+  pkg.removed:
     - name: {{ mariadb.pkg }}
+    - required_in:
+      - pkg: Mysql Client Latest
