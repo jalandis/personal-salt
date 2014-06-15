@@ -13,3 +13,4 @@ Sublime Text 3 Latest:
 
   pkg.latest:
     - name: {{ sublime.pkg }}
+    - skip_verify: true
