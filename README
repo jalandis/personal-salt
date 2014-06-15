@@ -48,9 +48,9 @@ https://vagrantbox.es
 5. Android
 6. Ubuntu Development SDK
 7. Apache
-8. mariaDB
+~~8. mariaDB~~
 ~~9. mongodb~~
-10. mysql
+~~10. mysql~~
 11. java-6
 12. eclipse
 13. phpstorm
@@ -59,4 +59,4 @@ https://vagrantbox.es
 16. salt
 17. python
 18. icedtea
-19. mysql
+19. Concurrent install of mariadb and mysql
