@@ -14,6 +14,7 @@ institutes:
     - php
     - texteditors.sublime
     - texteditors.atom
+    - utilities.logrotate
     - versionControl.subversion
     - versionControl.mercurial
     - versionControl.git
