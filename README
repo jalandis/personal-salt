@@ -42,9 +42,8 @@ https://vagrantbox.es
 # **TODO**
 
 1. PHP Oracle Extension
-2. Oracle Client
-3. PHP MsSQL Extension
-4. MsSQL Driver
-5. phpstorm
-6. chef
-7. Concurrent install of mariadb and mysql
+2. PHP MsSQL Extension
+3. MsSQL Driver
+4. phpstorm
+5. chef
+6. Concurrent install of mariadb and mysql
