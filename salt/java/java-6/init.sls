@@ -1,8 +1,8 @@
 {% set java = salt['grains.filter_by']({
-    'Debian': {'pkg': 'openjdk-7-jdk'},
+    'Debian': {'pkg': 'openjdk-6-jdk'},
     'default': 'Debian',
 }) %}
 
-Java 7 Latest:
+Java 6 Latest:
    pkg.latest:
      - name: {{ java.pkg }}
