@@ -5,7 +5,12 @@ institutes:
     # - backup
     - browsers.chrome
     - browsers.firefox
-    - databases.mariadb
+
+    # mariadb and mysql cannot be installed together
+    # Removal is a prerequisite of install
+    # - databases.mariadb
+    - databases.mysql
+
     - databases.mongodb
     - databases.postgres
     # - databases.sqldeveloper
@@ -14,6 +19,7 @@ institutes:
     # - network
     - nodejs
     - php
+    - provisioning.puppet
     - texteditors.sublime
     - texteditors.atom
     - utilities.logrotate
