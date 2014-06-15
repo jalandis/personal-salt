@@ -5,6 +5,7 @@ institutes:
     # - backup
     - browsers.chrome
     - browsers.firefox
+    - databases.mongodb
     - databases.postgres
     # - databases.sqldeveloper
     - java.java-7

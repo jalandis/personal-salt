@@ -1,6 +1,6 @@
 A collection of state files for testing OS upgrades and different development environments.
 
-** Creation of Base Box **
+# **Creation of Base Box**
 
 1. Mount iso in virtualbox
 2. Install OS (download updates)
@@ -35,11 +35,11 @@ A collection of state files for testing OS upgrades and different development en
 9. Package base box
      - vagrant package --base my-virtual-machine --output name.box
 
-** Base Boxes **
+# **Base Boxes**
 
 https://vagrantbox.es
 
-** TODO **
+# **TODO**
 
 1. PHP Oracle Extension
 2. Oracle Client
@@ -49,7 +49,7 @@ https://vagrantbox.es
 6. Ubuntu Development SDK
 7. Apache
 8. mariaDB
-9. mongodb
+~~9. mongodb~~
 10. mysql
 11. java-6
 12. eclipse
@@ -59,3 +59,4 @@ https://vagrantbox.es
 16. salt
 17. python
 18. icedtea
+19. mysql
