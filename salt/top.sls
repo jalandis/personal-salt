@@ -20,6 +20,8 @@ institutes:
     - nodejs
     - php
     - provisioning.puppet
+    - provisioning.salt.minion
+    - provisioning.salt.master
     - texteditors.sublime
     - texteditors.atom
     - utilities.logrotate

@@ -3,6 +3,6 @@
     'default': 'Debian',
 }) %}
 
-Puppet:
+Puppet Latest:
   pkg.latest:
     - name: {{ puppet.pkg }}
