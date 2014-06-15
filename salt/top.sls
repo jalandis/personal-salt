@@ -24,8 +24,9 @@ institutes:
     - provisioning.salt.minion
     - provisioning.salt.master
     - python
-    - texteditors.sublime
     - texteditors.atom
+    - texteditors.sublime
+    - texteditors.vim
     - utilities.logrotate
     - utilities.icedtea
     - versionControl.subversion
