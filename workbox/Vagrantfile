@@ -125,7 +125,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.boot_timeout = 1200
 
   config.vm.provider :virtualbox do |vb|
-    vb.gui = true
+    vb.gui = false
   end
 
   ## For masterless, mount your salt file root

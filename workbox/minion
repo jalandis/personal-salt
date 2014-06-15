@@ -575,6 +575,7 @@
 # Location of the repository cache file on the master
 #win_repo_cachefile: 'salt://win/repo/winrepo.p'
 
+master: localhost
 file_client: local
 
 file_roots:
