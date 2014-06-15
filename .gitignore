@@ -1,0 +1,9 @@
+# Project Configuration Files
+*.sublime-workspace
+
+# Base Box Files
+**.box
+workbox/.vagrant/
+
+# Sensitive Information
+salt/_pillars/users.sls

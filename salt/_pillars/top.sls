@@ -1,0 +1,3 @@
+institutes:
+  '*':
+    - users

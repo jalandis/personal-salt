@@ -1,0 +1,38 @@
+README
+
+Creation of base box :
+1. Mount iso in virtualbox
+2. Install OS (download updates)
+3. Create vagrant/vagrant user
+4. Setup NAT interface #1
+5. Install vagrant extras
+     - sudo apt-get update
+     - sudo apt-get install linux-headers-generic build-essential dkms
+     - mount additions available through virtualbox and run
+     - unmount through virtualbox
+6. Setup vagrant ssh pubkey
+     - sudo apt-get install openssh-server
+     - https://github.com/mitchellh/vagrant/tree/master/keys
+     - chmod 700 .ssh
+     - chmod 700 .ssh/authorized_keys
+     - chmod .ssh/authorized_keys/vagrant
+     - chmod .ssh/authorized_keys/vagrant.pub
+     - For issues with copy/paste
+       - Ubuntu
+         - killall VBoxClient
+         - VBoxClient-all
+7. Setup passwordless sudo for vagrant
+     - visudo (append the following line)
+     - vagrant ALL=(ALL) NOPASSWD: ALL
+8. Install desired provisioner
+     - salt
+       - sudo add-apt-repository ppa:saltstack/salt
+       - sudo apt-get update
+       - sudo apt-get install salt-master
+       - sudo apt-get install salt-minion
+       - sudo apt-get install salt-syndic
+9. Package base box
+     - vagrant package --base my-virtual-machine --output name.box
+
+Base boxes can be found at:
+https://vagrantbox.es
