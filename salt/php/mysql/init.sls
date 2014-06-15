@@ -3,6 +3,6 @@
     'default': 'Debian',
 }) %}
 
-Php Mysql:
+PHP Mysql:
   pkg.latest:
     - name: {{ php_mysql.pkg }}
