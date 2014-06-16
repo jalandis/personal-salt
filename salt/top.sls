@@ -34,6 +34,7 @@ institutes:
     # - provisioning.salt.minion
     # - provisioning.salt.master
     # - python
+    # - python.pip
     # - salt-config
     # - texteditors.atom
     # - texteditors.sublime
