@@ -14,3 +14,10 @@ Sublime Text 3 Latest:
   pkg.latest:
     - name: {{ sublime.pkg }}
     - skip_verify: true
+
+Sublime Settings:
+  file.managed:
+    - name: /home/vagrant/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    - source: salt://texteditors/sublime/config/Preferences.sublime-settings
+    - requires:
+      - pkg: Sublime Text 3 Latest

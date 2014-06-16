@@ -6,3 +6,5 @@
 Pip Latest:
   pkg.latest:
     - name: {{ pip.pkg }}
+    - require:
+      - pkg: Python Latest
