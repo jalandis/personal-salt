@@ -1,4 +1,5 @@
 institutes:
   '*':
     - users
-    - mount
+    - repositories
+    - ssh

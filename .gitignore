@@ -6,6 +6,5 @@
 workbox/.vagrant/
 
 # Sensitive Information
-salt/_pillars/users.sls
-salt/_pillars/mount.sls
-salt/_pillars/repositories.sls
+salt/_pillars/*
+!salt/_pillars/top.sls
