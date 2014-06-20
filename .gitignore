@@ -8,3 +8,4 @@ workbox/.vagrant/
 # Sensitive Information
 salt/_pillars/users.sls
 salt/_pillars/mount.sls
+salt/_pillars/repositories.sls
