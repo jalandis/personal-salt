@@ -1,9 +1,13 @@
 {% for user, user_args in pillar['users'].iteritems() %}
-    {% if user_args['sublime_settings'] is defined %}
-Sublime Settings:
+Sublime Settings ({{ user }}):
   file.managed:
     - name: /home/{{ user }}/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
-    - text: {{ user_args['sublime_settings'] }}
+    - source: salt://texteditors/sublime/config/Preferences.sublime-settings
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: '0666'
     - makedirs: true
-  {% endif %}
+    - recurse:
+      - user
+      - group
 {% endfor %}
