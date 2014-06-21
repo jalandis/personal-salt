@@ -1,0 +1,9 @@
+known_hosts:
+  url:
+    fingerprint: ...
+    username: ...
+
+keys:
+  username:
+    public_rsa: rsa_template_file
+    private_rsa: rsa_template_file
