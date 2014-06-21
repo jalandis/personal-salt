@@ -4,4 +4,5 @@
       - fullname: {{ args['fullname'] }}
       - password: {{ args['password'] }}
       - home:     {{ args['home'] }}
+      - order: 1
 {% endfor %}
