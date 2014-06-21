@@ -125,7 +125,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.boot_timeout = 1200
 
   config.vm.provider :virtualbox do |vb|
-    vb.gui = false
+    vb.gui = true
+
+    # Configure VM Ram usage
+    vb.customize [
+      "modifyvm", :id,
+      "--name", "ubuntu14-04",
+      "--memory", "3584"
+    ]
   end
 
   ## For masterless, mount your salt file root
