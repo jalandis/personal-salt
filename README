@@ -39,6 +39,36 @@ A collection of state files for testing OS upgrades and different development en
 
 https://vagrantbox.es
 
+# ** Salt Notes **
+1. user.present
+  - requires hashed password
+  - python -c "import crypt; print crypt.crypt('password', '\$6\$SALTsalt\$')"
+2. Virtualbox file shares are slow.  Consider moving to NFS, requires private network
+   and (nfs-common and rpcbind/portmap packages)
+   TODO : convert to private network
+   See https://coderwall.com/p/uaohzg
+3. Issue with shell provisioner
+   TODO : Edit /root/.profile in basebox
+   mesg -n -> tty -s && mesg -n
+4. Modifying path may require change to sudoer file
+   Issue 1673 (https://github.com/mitchellh/vagrant/issues/1673)
+   sudo visudo -> remove secure path and add "Defaults env_keep = "PATH""
+
 # **TODO**
 
-Testing
+1. Testing
+  - VPN
+    - Institutes
+    - Office
+  - Behat Database Tests
+2. 32 bit Firefox
+  - Necessary libraries
+3. Setup Users
+  - bash_rc
+  - etc.
+4. Setup Printers
+5. Issue with virtual-box drivers
+6. remmina setup
+7. eclipse setup???
+
+/etc/NetworkManager/dispatcher.d/

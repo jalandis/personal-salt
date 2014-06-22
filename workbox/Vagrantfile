@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+require 'yaml'
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -120,7 +122,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   #   chef.validation_client_name = "ORGNAME-validator"
 
-  config.vm.hostname = "ubuntu14-04"
+  vconfig = YAML::load_file("./vagrant_config.yml")
+  hostname        = vconfig['hostname']        || "ubuntu14-04"
+  saltstack_local = vconfig['saltstack_local'] || false
+
+  config.vm.hostname = hostname
   config.vm.network :public_network, :bridge => 'eth1', :adapter => 2
   config.vm.boot_timeout = 1200
 
@@ -130,7 +136,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Configure VM Ram usage
     vb.customize [
       "modifyvm", :id,
-      "--name", "ubuntu14-04",
+      "--name", hostname,
       "--memory", "3584"
     ]
   end
@@ -138,11 +144,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   ## For masterless, mount your salt file root
   config.vm.synced_folder "../salt", "/srv/salt/"
 
-  ## Use all the defaults:
-  config.vm.provision :salt do |salt|
+  if saltstack_local
+    puts 'Calling submodule salt'
+    config.vm.synced_folder "../saltstack", "/srv/saltstack/"
+    config.vm.provision "shell", inline: '/srv/saltstack/scripts/salt-call state.highstate'
+  else
+    ## Use all the defaults:
+    config.vm.provision :salt do |salt|
 
-    salt.minion_config = "minion"
-    salt.run_highstate = true
-    salt.colorize      = true
+      salt.minion_config = "minion"
+      salt.run_highstate = true
+      salt.colorize      = true
+    end
   end
 end

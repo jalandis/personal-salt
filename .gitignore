@@ -3,8 +3,10 @@
 
 # Base Box Files
 **.box
-workbox/.vagrant/
+**/.vagrant
+workbox/vagrant_config.yml
 
 # Sensitive Information
 salt/_pillars/*
 !salt/_pillars/top.sls
+!salt/_pillars/templates
