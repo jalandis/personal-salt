@@ -1,0 +1,4 @@
+[submodule "saltstack"]
+	path = saltstack
+	url = git@github.com:saltstack/salt.git
+  ignore = dirty
