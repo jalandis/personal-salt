@@ -122,7 +122,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   #   chef.validation_client_name = "ORGNAME-validator"
 
-  vconfig = YAML::load_file("./vagrant_config.yml")
+  if File.file?("./vagrant_config.yml")
+    vconfig = YAML::load_file("./vagrant_config.yml")
+  else
+    puts 'Missing vagrant_config.yml file.  Assuming defaults.'
+    vconfig = Hash.new
+  end
+
   hostname        = vconfig['hostname']        || "ubuntu14-04"
   saltstack_local = vconfig['saltstack_local'] || false
 
@@ -145,14 +151,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "../salt", "/srv/salt/"
 
   if saltstack_local
-    puts 'Calling submodule salt'
+    puts 'Calling submodule salt (Requires vagrant destroy to undo!)'
     config.vm.synced_folder "../saltstack", "/srv/saltstack/"
-    config.vm.provision "shell", inline: '/srv/saltstack/scripts/salt-call state.highstate'
+    config.vm.synced_folder "../workbox/config", "/etc/salt"
+    config.vm.synced_folder "../saltstack/salt", "/usr/lib/python2.7/dist-packages/salt"
+    config.vm.provision "shell", path: "config/cleanDevEnvironment.bs"
+    config.vm.provision "shell", inline: '/srv/saltstack/scripts/salt-call state.highstate --local'
   else
     ## Use all the defaults:
     config.vm.provision :salt do |salt|
 
-      salt.minion_config = "minion"
+      salt.minion_config = "config/minion"
       salt.run_highstate = true
       salt.colorize      = true
     end

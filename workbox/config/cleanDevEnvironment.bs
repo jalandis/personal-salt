@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Remove package if installed
+dpkg -s salt-common >/dev/null 2>&1 && apt-get purge salt-common -y 2>\dev\null
+
+# Remove compiled python files
+find /usr/lib/python2.7/dist-packages/salt -type f -name "*.pyc" -exec rm -f {} \;

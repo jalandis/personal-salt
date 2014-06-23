@@ -5,6 +5,9 @@
 **.box
 **/.vagrant
 workbox/vagrant_config.yml
+workbox/config/*
+!workbox/config/cleanDevEnvironment.bs
+!workbox/config/minion
 
 # Sensitive Information
 salt/_pillars/*
