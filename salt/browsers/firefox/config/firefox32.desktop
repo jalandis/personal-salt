@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Firefox 32 Bit
+Comment=
+Exec=/usr/lib32/firefox/firefox
+Icon=firefox
+Terminal=false
+Type=Application
+StartupNotify=true
