@@ -6,7 +6,11 @@ if [ "$(whoami)" != "root" ]; then
   echo "Requires root permissions"
   exit 1
 fi
+
+# Passwordless sudo for vagrant
 echo 'vagrant ALL=(ALL) NOPASSWD: ALL' | tee -a /etc/sudoers
+
+# Update/Install/Clean packages
 add-apt-repository ppa:saltstack/salt
 apt-get update
 apt-get dist-upgrade
@@ -29,11 +33,16 @@ apt-get autoclean
 # Test of virtual box mods
 lsmod | grep vbox
 
-mkdir -p ~/.ssh/authorized_keys
-curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub > ~/.ssh/authorized_keys/vagrant.pub
-chmod 700 ~/.ssh
-chmod 700 ~/.ssh/authorized_keys
-chmod 600 ~/.ssh/authorized_keys/vagrant.pub
+if [! -d ~/.ssh] then
+  mkdir ~/.ssh
+fi
 
+# Setup vagrant insecure ssh keys
+curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub >> ~/.ssh/authorized_keys
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+chown -R vagrant ~/.ssh
+
+# Setup root profile to check for terminal -> allows scripted provisioning
 sed -e "s/mesg n/tty -s && mesg n/" /root/.profile > /tmp/.profile
 mv /tmp/.profile /root/.profile
