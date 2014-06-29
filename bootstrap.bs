@@ -1,7 +1,0 @@
-/*
- * Install Vagrant
- * Install Virtualbox
- * Install salt
- *
- * Print information on setup of box (README.md)
- */

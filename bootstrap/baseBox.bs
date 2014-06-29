@@ -1,31 +1,30 @@
 #!/bin/bash
 
-/*
- * Setup of Ubuntu basebox
- */
+# Setup of Ubuntu basebox
 
 if [ "$(whoami)" != "root" ]; then
-  echo "Requires to be run as root"
+  echo "Requires root permissions"
   exit 1
 fi
-echo vagrant ALL=(ALL) NOPASSWD: ALL | tee -a /etc/sudoers
+echo 'vagrant ALL=(ALL) NOPASSWD: ALL' | tee -a /etc/sudoers
 add-apt-repository ppa:saltstack/salt
 apt-get update
 apt-get dist-upgrade
-apt-get install linux-headers-generic \
-                build-essential \
-                dkms \
-                virualbox-guest-utils \
-                virualbox-guest-dkms \
-                virualbox-guest-x11 \
-                virtualbox-qt \
-                openssh-server \
-                curl \
-                salt-master \
-                salt-minion \
-                salt-syndic \
-                nfs-common \
-                portmap
+apt-get install -y linux-headers-generic \
+                   build-essential \
+                   dkms \
+                   virtualbox-guest-utils \
+                   virtualbox-guest-dkms \
+                   virtualbox-guest-x11 \
+                   virtualbox-qt \
+                   openssh-server \
+                   curl \
+                   salt-master \
+                   salt-minion \
+                   salt-syndic \
+                   nfs-common \
+                   rcpbind
+apt-get autoclean
 
 # Test of virtual box mods
 lsmod | grep vbox
