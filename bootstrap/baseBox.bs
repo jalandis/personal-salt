@@ -1,0 +1,40 @@
+#!/bin/bash
+
+/*
+ * Setup of Ubuntu basebox
+ */
+
+if [ "$(whoami)" != "root" ]; then
+  echo "Requires to be run as root"
+  exit 1
+fi
+echo vagrant ALL=(ALL) NOPASSWD: ALL | tee -a /etc/sudoers
+add-apt-repository ppa:saltstack/salt
+apt-get update
+apt-get dist-upgrade
+apt-get install linux-headers-generic \
+                build-essential \
+                dkms \
+                virualbox-guest-utils \
+                virualbox-guest-dkms \
+                virualbox-guest-x11 \
+                virtualbox-qt \
+                openssh-server \
+                curl \
+                salt-master \
+                salt-minion \
+                salt-syndic \
+                nfs-common \
+                portmap
+
+# Test of virtual box mods
+lsmod | grep vbox
+
+mkdir -p ~/.ssh/authorized_keys
+curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub > ~/.ssh/authorized_keys/vagrant.pub
+chmod 700 ~/.ssh
+chmod 700 ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys/vagrant.pub
+
+sed -e "s/mesg n/tty -s && mesg n/" /root/.profile > /tmp/.profile
+mv /tmp/.profile /root/.profile
