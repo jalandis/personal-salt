@@ -6,7 +6,7 @@ vagrant package --base my-virtual-machine --output name.box
 # **Base Boxes**
 https://vagrantbox.es
 
-# ** Salt/Vagrant/Virutalbox Notes **
+# ** Salt/Vagrant/Virtualbox Notes **
 1. user.present
   - requires hashed password
   - python -c "import crypt; print crypt.crypt('password', '\$6\$SALTsalt\$')"
@@ -18,7 +18,7 @@ https://vagrantbox.es
    sudo visudo -> remove secure path and add "Defaults env_keep = "PATH""
 
 # **Developing Saltstack**
-1. Add salstack submodule
+1. Add saltstack submodule
 2. Add flag to vagrant_config.yml
 3. checkout with submodule
 

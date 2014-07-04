@@ -3,6 +3,9 @@ users:
     fullname: ...
     password : hashed_password (see README)
     home: ...
+    groups:
+      - username
+      ...
     # Optional
     fstab_creds:
       cred_file_location:
