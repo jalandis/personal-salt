@@ -14,6 +14,7 @@ FireFox 32 Bit Dependencies:
       - 'libdbus-glib-1-2:i386'
       - 'libgtk2.0-0:i386'
       - 'libxt6:i386'
+      - 'libxtst6:i386'
 
 Firefox Unpack:
   file.directory:
@@ -63,20 +64,6 @@ Firefox Profiles Configuration ({{ user }}):
     - source: salt://browsers/firefox/config/profiles.ini
     - user: {{ user }}
     - group: {{ user }}
-
-# Firefox Create Profile ({{ user }}):
-#   file.directory:
-#     - name: /home/{{ user }}/.mozilla/plugins
-#     - makedirs: true
-#     - user: {{ user }}
-#     - group: {{ user }}
-
-# Firefox Java Plugin Directory ({{ user }}):
-#   file.directory:
-#     - name: /home/{{ user }}/.mozilla/firefox/profile.mozilla32/plugins
-#     - makedirs: true
-#     - user: {{ user }}
-#     - group: {{ user }}
 
 Firefox Java Plugin ({{ user }}):
   file.symlink:
