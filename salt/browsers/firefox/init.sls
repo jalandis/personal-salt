@@ -3,6 +3,6 @@
     'default': 'Debian',
 }) %}
 
-Firefox:
+Firefox Latest:
   pkg.latest:
     - name: {{ firefox.pkg }}
