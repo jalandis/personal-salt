@@ -1,58 +1,26 @@
 A collection of state files for testing OS upgrades and different development environments.
 
-# **Creation of Base Box**
-
-1. Mount iso in virtualbox
-2. Install OS (download updates)
-3. Create vagrant/vagrant user
-4. Setup NAT interface #1
-5. Install vagrant extras
-     - sudo apt-get update
-     - sudo apt-get install linux-headers-generic build-essential dkms
-     - mount additions available through virtualbox and run
-     - unmount through virtualbox
-6. Setup vagrant ssh pubkey
-     - sudo apt-get install openssh-server
-     - https://github.com/mitchellh/vagrant/tree/master/keys
-     - chmod 700 .ssh
-     - chmod 700 .ssh/authorized_keys
-     - chmod .ssh/authorized_keys/vagrant
-     - chmod .ssh/authorized_keys/vagrant.pub
-     - For issues with copy/paste
-       - Ubuntu
-         - killall VBoxClient
-         - VBoxClient-all
-7. Setup passwordless sudo for vagrant
-     - visudo (append the following line)
-     - vagrant ALL=(ALL) NOPASSWD: ALL
-8. Install desired provisioner
-     - salt
-       - sudo add-apt-repository ppa:saltstack/salt
-       - sudo apt-get update
-       - sudo apt-get install salt-master
-       - sudo apt-get install salt-minion
-       - sudo apt-get install salt-syndic
-9. Package base box
-     - vagrant package --base my-virtual-machine --output name.box
+# **Package Base Box**
+vagrant package --base my-virtual-machine --output name.box
 
 # **Base Boxes**
-
 https://vagrantbox.es
 
-# ** Salt Notes **
+# ** Salt/Vagrant/Virutalbox Notes **
 1. user.present
   - requires hashed password
   - python -c "import crypt; print crypt.crypt('password', '\$6\$SALTsalt\$')"
 2. Virtualbox file shares are slow.  Consider moving to NFS, requires private network
    and (nfs-common and rpcbind/portmap packages)
-   TODO : convert to private network
    See https://coderwall.com/p/uaohzg
-3. Issue with shell provisioner
-   TODO : Edit /root/.profile in basebox
-   mesg -n -> tty -s && mesg -n
-4. Modifying path may require change to sudoer file
+3. Modifying path may require change to sudoer file
    Issue 1673 (https://github.com/mitchellh/vagrant/issues/1673)
    sudo visudo -> remove secure path and add "Defaults env_keep = "PATH""
+
+# **Developing Saltstack**
+1. Add salstack submodule
+2. Add flag to vagrant_config.yml
+3. checkout with submodule
 
 # **TODO**
 
@@ -61,14 +29,8 @@ https://vagrantbox.es
     - Institutes
     - Office
   - Behat Database Tests
-2. 32 bit Firefox
-  - Necessary libraries
-3. Setup Users
-  - bash_rc
-  - etc.
-4. Setup Printers
-5. Issue with virtual-box drivers
-6. remmina setup
-7. eclipse setup???
+2. Setup Printers
+3. Issue with virtual-box drivers
+4. eclipse setup???
 
 /etc/NetworkManager/dispatcher.d/

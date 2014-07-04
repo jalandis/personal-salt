@@ -575,6 +575,9 @@
 # Location of the repository cache file on the master
 #win_repo_cachefile: 'salt://win/repo/winrepo.p'
 
+log_file: /srv/logs/minion
+log_level: debug
+
 master: localhost
 file_client: local
 

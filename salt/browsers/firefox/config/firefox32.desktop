@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Firefox 32 Bit
 Comment=
-Exec=/usr/lib32/firefox/firefox
+Exec=/usr/bin/firefox32
 Icon=firefox
 Terminal=false
 Type=Application

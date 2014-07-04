@@ -1,5 +1,5 @@
 {% set icedtea32 = salt['grains.filter_by']({
-    'Debian': {'pkg': 'icedtea-6-plugin:i386'},
+    'Debian': {'pkg': 'icedtea-7-plugin:i386'},
     'default': 'Debian',
 }) %}
 

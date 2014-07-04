@@ -13,3 +13,6 @@ workbox/config/*
 salt/_pillars/*
 !salt/_pillars/top.sls
 !salt/_pillars/templates
+
+# Log files
+logs/*
