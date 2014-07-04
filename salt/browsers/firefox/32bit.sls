@@ -34,6 +34,16 @@ Firefox Unpack:
       - file: Firefox Unpack
       - pkg: FireFox 32 Bit Dependencies
 
+Firefox Icon:
+  file.managed:
+    - name: /usr/share/pixmaps/firefox32.png
+    - user: root
+    - group: root
+    - mode: '0644'
+    - source: salt://browsers/firefox/config/firefox.png
+    - requires:
+      - archive: Firefox Unpack
+
 Firefox Install Executable:
   file.managed:
     - name: /usr/bin/firefox32
