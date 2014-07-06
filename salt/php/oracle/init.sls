@@ -1,5 +1,6 @@
 include:
   - databases.oracle
+  - php.pear
 
 PHP Oracle:
   pecl.installed:
