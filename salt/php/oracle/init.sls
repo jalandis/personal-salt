@@ -14,3 +14,8 @@ PHP OCI8 Extension:
   file.append:
      - name: /etc/php5/cli/php.ini
      - text: extension=oci8.so
+
+PHP OCI8 Dependencies:
+  pkg.latest:
+    - pkgs:
+      - 'libaio1'
