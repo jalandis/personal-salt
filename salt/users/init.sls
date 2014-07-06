@@ -5,9 +5,11 @@
       - password: {{ args['password'] }}
       - home:     {{ args['home'] }}
       - groups:
-      {% for group in args['groups'] %}
-        - {{ group }}
-      {% endfor %}
+      {% if args['groups'] is defined %}
+        {% for group in args['groups'] %}
+          - {{ group }}
+        {% endfor %}
+      {% endif %}
       - enforce_password: False
       - remove_groups: False
       - order: 1
