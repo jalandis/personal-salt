@@ -4,7 +4,7 @@
 }) %}
 
 PHP Curl Latest:
-  pkg.latest: {{ php_curl.pkg }}
-    - name:
+  pkg.latest:
+    - name: {{ php_curl.pkg }}
     - require:
       - pkg: PHP Latest
