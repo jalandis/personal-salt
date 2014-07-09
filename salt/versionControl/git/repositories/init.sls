@@ -6,8 +6,8 @@ include:
 Create Directory ({{ config['target'] }}):
   file.directory:
     - name: {{ config['target'] }}
-    - user: {{ config['username'] }}
-    - group: {{ config['username'] }}
+    - user: {{ config['user'] }}
+    - group: {{ config['user'] }}
     - makedirs: true
     - recurse:
       - user
@@ -18,7 +18,7 @@ Git Latest ({{ repo }}):
     - name: {{ repo }}
     - rev: {{ config['rev'] }}
     - target: {{ config['target'] }}
-    - user: {{ config['username'] }}
+    - user: {{ config['user'] }}
   require:
     - pgk: Git Latest
     - sls: network.ssh.config

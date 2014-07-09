@@ -6,3 +6,5 @@
 PHP Mysql:
   pkg.latest:
     - name: {{ php_mysql.pkg }}
+    - require:
+      - pkg: PHP Latest

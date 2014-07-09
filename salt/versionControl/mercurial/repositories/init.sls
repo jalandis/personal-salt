@@ -6,8 +6,8 @@ include:
 Create Directory ({{ config['target'] }}):
   file.directory:
     - name: {{ config['target'] }}
-    - user: {{ config['username'] }}
-    - group: {{ config['username'] }}
+    - user: {{ config['user'] }}
+    - group: {{ config['user'] }}
     - makedirs: true
     - recurse:
       - user
@@ -18,7 +18,10 @@ Hg Latest ({{ repo }}):
     - name: {{ repo }}
     - rev: {{ config['rev'] }}
     - target: {{ config['target'] }}
-    - user: {{ config['username'] }}
+    - user: {{ config['user'] }}
+    {% if config['opts'] is defined %}
+    - opts: {{ config['opts'] }}
+    {% endif %}
   require:
     - pgk: Mercurial Latest
     - sls: network.ssh.config
