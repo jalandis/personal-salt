@@ -3,8 +3,9 @@ institutes:
     - users
     - ssh
     - postgres
+    - git.fantasytour
 
-  '*':
+  'tower-of-power':
     - users
     - repositories
     - ssh

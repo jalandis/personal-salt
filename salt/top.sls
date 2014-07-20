@@ -33,9 +33,9 @@ institutes:
     # - utilities.ant
     # - utilities.logrotate
     # - versionControl.git
-    # #- versionControl.git.repositories
+    # - versionControl.git.repositories
     # - versionControl.mercurial
-    # #- versionControl.mercurial.repositories
+    # - versionControl.mercurial.repositories
     # - versionControl.subversion
     # - virtualization.virtualbox
     # - virtualization.vagrant
@@ -51,7 +51,10 @@ institutes:
     - python.pip
     - python.packages.django
     - salt-config
+    - ubuntu.upgrade
     - users
+    - versionControl.git
+    - versionControl.git.repositories
 
   'os:Ubuntu':
     - match: grain
