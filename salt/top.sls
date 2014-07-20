@@ -1,44 +1,57 @@
 institutes:
   'tower-of-power':
-    - browsers.chrome
-    - browsers.firefox
-    - browsers.firefox.32bit
-    - browsers.icedtea
-    - java.java-7
-    - libreoffice
-    - network.cifs
+    # - browsers.chrome
+    # - browsers.firefox
+    # - browsers.firefox.32bit
+    # - browsers.icedtea
+    # - java.java-7
+    # - libreoffice
+    # - network.cifs
     - network.config.fstab
-    - network.freerdp
-    - network.nmap
-    - network.remmina
-    - network.remmina.config
+    # - network.freerdp
+    # - network.nmap
+    # - network.remmina
+    # - network.remmina.config
+    # - network.ssh.client
+    # - network.ssh.config.client
+    # - php
+    # - php.curl
+    # - php.mssql
+    # - php.mysql
+    # - php.oracle
+    # - provisioning.salt.minion
+    # - python
+    # - python.pip
+    # - texteditors.atom
+    # - texteditors.sublime
+    # - texteditors.sublime.config
+    # - texteditors.vim
+    # # - ubuntu.gsettings
+    # - ubuntu.upgrade
+    # - users
+    # - utilities.alien
+    # - utilities.ant
+    # - utilities.logrotate
+    # - versionControl.git
+    # #- versionControl.git.repositories
+    # - versionControl.mercurial
+    # #- versionControl.mercurial.repositories
+    # - versionControl.subversion
+    # - virtualization.virtualbox
+    # - virtualization.vagrant
+
+  'fantasytour':
+    - databases.postgres
+    - databases.postgres.config
+    - network.ssh.server
+    - network.ssh.config.server
     - network.ssh.client
-    - network.ssh.config
-    - php
-    - php.curl
-    - php.mssql
-    - php.mysql
-    - php.oracle
-    - provisioning.salt.minion
+    - network.ssh.config.client
     - python
     - python.pip
-    - texteditors.atom
-    - texteditors.sublime
-    - texteditors.sublime.config
-    - texteditors.vim
-    # - ubuntu.gsettings
-    - ubuntu.upgrade
+    - python.packages.django
+    - salt-config
     - users
-    - utilities.alien
-    - utilities.ant
-    - utilities.logrotate
-    - versionControl.git
-    #- versionControl.git.repositories
-    - versionControl.mercurial
-    #- versionControl.mercurial.repositories
-    - versionControl.subversion
-    - virtualization.virtualbox
-    - virtualization.vagrant
 
   'os:Ubuntu':
     - match: grain
@@ -58,7 +71,7 @@ institutes:
     # - databases.mongodb
     # - databases.postgres
     # - databases.oracle
-    - utilities.dconf-tools
+    # - utilities.dconf-tools
     # - gimp
     # - haskell
     # - ides.eclipse
@@ -75,7 +88,7 @@ institutes:
     # - network.remmina.config
     # - network.ssh.client
     # - network.ssh.server
-    # - network.ssh.config
+    # - network.ssh.config.client
     # - network.wireshark
     # - nodejs
     # - php
