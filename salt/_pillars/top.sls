@@ -11,4 +11,3 @@ institutes:
     - ssh
     - remmina
     - mount
-

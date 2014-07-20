@@ -41,6 +41,7 @@ institutes:
     # - virtualization.vagrant
 
   'fantasytour':
+    - browsers.chrome
     - databases.postgres
     - databases.postgres.config
     - network.ssh.server
@@ -50,7 +51,10 @@ institutes:
     - python
     - python.pip
     - python.packages.django
+    - python.packages.psycopg2
     - salt-config
+    - texteditors.sublime
+    - texteditors.sublime.config
     - ubuntu.upgrade
     - users
     - versionControl.git
