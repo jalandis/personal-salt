@@ -1,6 +1,6 @@
 include:
   - versionControl.git
-  - network.ssh.config
+  - network.ssh.config.client
 
 {% for repo, config in pillar['git'].iteritems() %}
 Create Directory ({{ config['target'] }}):
