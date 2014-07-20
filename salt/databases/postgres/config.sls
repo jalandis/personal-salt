@@ -24,14 +24,15 @@ Creating Postgres User ({{ username }}):
       - postgres_user: Creating Postgres User ({{ config['owner'] }})
 {% endfor %}
 
-Postrgres SSH Config:
-  file.replace:
-    - name: /etc/ssh/sshd_config
-    - pattern: '#AuthorizedKeysFile\s+%h/\.ssh/authorized_keys'
-    - repl: 'AuthorizedKeysFile\s+%h/\.ssh/authorized_keys'
-    - backup: ''
-    - require:
-      - pkg: SSH Server Latest
+# Breaking vagrant ssh
+# Postrgres SSH Config:
+#   file.replace:
+#     - name: /etc/ssh/sshd_config
+#     - pattern: '#AuthorizedKeysFile\s+%h/\.ssh/authorized_keys'
+#     - repl: 'AuthorizedKeysFile\s+%h/\.ssh/authorized_keys'
+#     - backup: ''
+#     - require:
+#       - pkg: SSH Server Latest
 
 Postrgres Config:
   file.replace:
