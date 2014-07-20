@@ -3,11 +3,11 @@ institutes:
     - users
     - ssh
     - postgres
-    - git.fantasytour
+    - symlink
 
   'tower-of-power':
     - users
-    - repositories
+    - git.personal-salt
     - ssh
     - remmina
     - mount

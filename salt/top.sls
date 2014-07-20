@@ -56,9 +56,8 @@ institutes:
     - texteditors.sublime
     - texteditors.sublime.config
     - ubuntu.upgrade
+    - utilities.symlink
     - users
-    - versionControl.git
-    - versionControl.git.repositories
 
   'os:Ubuntu':
     - match: grain

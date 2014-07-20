@@ -1,3 +1,10 @@
+#
+# Repositories Template
+#
+# Add repositories to individual sls files under git/hg/svn folders
+# Allows fine grain control over environment setup from top
+#
+
 git:
   repository-url:
     target: ...
