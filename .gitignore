@@ -14,5 +14,8 @@ salt/_pillars/*
 !salt/_pillars/top.sls
 !salt/_pillars/templates
 
+# git ls-files --others | xargs tar cf un-versioned.tar
+archive.tar
+
 # Log files
 logs/*
