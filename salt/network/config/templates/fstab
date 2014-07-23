@@ -1,9 +1,3 @@
-//ceuphpdev2.cpcuiia.org/Zend          /mnt/ceudev2    cifs  iocharset=noauto,utf8,credentials={{ jalandis_credential_file }},sec=ntlm,uid=1000  0  0
-//ceuphptest2.cpcuiia.org/Zend         /mnt/ceutest2   cifs  iocharset=noauto,utf8,credentials={{ jalandis_credential_file }},sec=ntlm,uid=1000  0  0
-//ceuphpdev.cpcuiia.org/Zend           /mnt/ceudev     cifs  iocharset=noauto,utf8,credentials={{ jalandis_credential_file }},sec=ntlm,uid=1000  0  0
-//ceuphptest.cpcuiia.org/Zend          /mnt/ceutest    cifs  iocharset=noauto,utf8,credentials={{ jalandis_credential_file }},sec=ntlm,uid=1000  0  0
-//aiphpdev2.cpcuiia.org/Zend           /mnt/aidev2     cifs  iocharset=noauto,utf8,credentials={{ jalandis_credential_file }},sec=ntlm,uid=1000  0  0
-//aiphptest2.cpcuiia.org/Zend          /mnt/aitest2    cifs  iocharset=noauto,utf8,credentials={{ jalandis_credential_file }},sec=ntlm,uid=1000  0  0
-//aiwebdev.cpcuiia.org/Zend            /mnt/aidev      cifs  iocharset=noauto,utf8,credentials={{ jalandis_credential_file }},sec=ntlm,uid=1000  0  0
-//aiphptest.cpcuiia.org/Zend           /mnt/aitest     cifs  iocharset=noauto,utf8,credentials={{ jalandis_credential_file }},sec=ntlm,uid=1000  0  0
-//aiutil.cpcuiia.org/Installs/LocalDev /mnt/installers cifs  iocharset=noauto,utf8,credentials={{ jalandis_credential_file }},sec=ntlm,uid=1000  0  0
+{% for mount, args in pillar['mounts'].iteritems() %}
+{{ mount }} {{ args['mnt_point'] }} {{ args['arguments'] }}
+{% endfor %}

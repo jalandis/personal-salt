@@ -23,5 +23,6 @@ Remmina Connection ({{ connection }}):
         domain: {{ connection_config['domain'] }}
         server: {{ connection_config['server'] }}
         colordepth: {{ connection_config['colordepth'] }}
+        connection_name: {{ connection }}
   {% endfor %}
 {% endfor %}

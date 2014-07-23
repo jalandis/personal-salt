@@ -1,3 +1,17 @@
+{% for mount, args in pillar['mounts'].iteritems() %}
+Create Mount ({{ args.mnt_point }}):
+  mount.mounted:
+    - name: {{ args.mnt_point }}
+    - device: {{ mount }}
+    - fstype: {{ args.fstype }}
+    - opts: {{ args.opts }}
+    - dump: 0
+    - pass_num: 0
+    - persist: True
+    - mkmnt: True
+    - mount: False
+{% endfor %}
+
 {% for user, user_args in pillar['users'].iteritems() %}
   {% if user_args['fstab_creds'] is defined %}
     {% for file in user_args['fstab_creds'] %}
@@ -13,23 +27,3 @@ Creds {{ file }}:
     {% endfor %}
   {% endif %}
 {% endfor %}
-
-{% for mount in pillar['mounts'] %}
-Create Mounted Directories ({{ mount }}):
-  file.directory:
-    - name: {{ mount }}
-{% endfor %}
-
-Setup Fstab:
-  file.managed:
-    - name: /etc/fstab
-    - source: salt://network/config/templates/fstab
-    - template: jinja
-    - context:
-    {% for user, user_args in pillar['users'].iteritems() %}
-      {% if user_args['fstab_creds'] is defined %}
-        {% for file in user_args['fstab_creds'] %}
-        {{ user }}_credential_file: {{ file }}
-        {% endfor %}
-      {% endif %}
-    {% endfor %}
