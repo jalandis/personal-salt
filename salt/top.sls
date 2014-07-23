@@ -44,6 +44,7 @@ institutes:
     - browsers.chrome
     - databases.postgres
     - databases.postgres.config
+    - java.java-7
     - network.ssh.server
     - network.ssh.config.server
     - network.ssh.client
@@ -56,6 +57,7 @@ institutes:
     - texteditors.sublime
     - texteditors.sublime.config
     - ubuntu.upgrade
+    - utilities.ant
     - utilities.symlink
     - users
 
