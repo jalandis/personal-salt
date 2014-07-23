@@ -17,20 +17,15 @@ https://vagrantbox.es
    Issue 1673 (https://github.com/mitchellh/vagrant/issues/1673)
    sudo visudo -> remove secure path and add "Defaults env_keep = "PATH""
 
+
 # **Developing Saltstack**
+TODO: This is not pretty
 1. Add saltstack submodule
 2. Add flag to vagrant_config.yml
 3. checkout with submodule
 
 # **TODO**
 
-1. Testing
-  - VPN
-    - Institutes
+1. VPN
     - Office
-  - Behat Database Tests
 2. Setup Printers
-3. Issue with virtual-box drivers
-4. eclipse setup???
-
-/etc/NetworkManager/dispatcher.d/

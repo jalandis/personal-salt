@@ -7,12 +7,26 @@ require 'yaml'
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  if File.file?("./vagrant_config.yml")
+    vconfig = YAML::load_file("./vagrant_config.yml")
+  else
+    puts 'Missing vagrant_config.yml file.  Assuming defaults.'
+    vconfig = Hash.new
+  end
+
+  box             = vconfig['box']             || "Ubuntu-14.04-base.box"
+  hostname        = vconfig['hostname']        || "Ubuntu-14.04"
+  saltstack_local = vconfig['saltstack_local'] || false
+  gui             = vconfig['gui']             || true
+  minion_config   = vconfig['minion_config']   || "config/minion"
+
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "ubuntu14_04.box"
+  config.vm.box = box
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -31,7 +45,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  config.vm.network "public_network"
+  # config.vm.network "public_network"
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
@@ -122,22 +136,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   #   chef.validation_client_name = "ORGNAME-validator"
 
-  if File.file?("./vagrant_config.yml")
-    vconfig = YAML::load_file("./vagrant_config.yml")
-  else
-    puts 'Missing vagrant_config.yml file.  Assuming defaults.'
-    vconfig = Hash.new
-  end
-
-  hostname        = vconfig['hostname']        || "ubuntu14-04"
-  saltstack_local = vconfig['saltstack_local'] || false
-
   config.vm.hostname = hostname
-  config.vm.network :public_network, :bridge => 'eth1', :adapter => 2
   config.vm.boot_timeout = 1200
 
   config.vm.provider :virtualbox do |vb|
-    vb.gui = true
+    vb.gui = gui
 
     # Configure VM Ram usage
     vb.customize [
@@ -145,10 +148,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "--name", hostname,
       "--memory", "3584"
     ]
+
   end
+
+  config.vm.network "public_network", bridge: "eth1"
 
   ## For masterless, mount your salt file root
   config.vm.synced_folder "../salt", "/srv/salt/"
+
+  ## Log files
+  config.vm.synced_folder "../logs", "/srv/logs/"
+
+  ## Workspace
+  config.vm.synced_folder "../..", "/srv/workspace"
 
   if saltstack_local
     puts 'Calling submodule salt (Requires vagrant destroy to undo!)'
@@ -161,9 +173,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ## Use all the defaults:
     config.vm.provision :salt do |salt|
 
-      salt.minion_config = "config/minion"
-      salt.run_highstate = true
-      salt.colorize      = true
+      ## Prepare minion config
+      minionSource = File.read(minion_config)
+      File.write("config/minion_updated", minionSource.gsub(/@id@/, hostname))
+
+      salt.minion_config     = "config/minion_updated"
+      salt.run_highstate     = true
+      salt.colorize          = true
     end
   end
 end

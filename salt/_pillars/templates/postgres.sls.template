@@ -1,0 +1,7 @@
+postgres:
+  users:
+    username:
+      password: ...
+  databases:
+    db_name:
+      owner: ...

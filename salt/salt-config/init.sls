@@ -8,3 +8,11 @@ Set Clock Frequency:
      - name: /home/vagrant/.profile
      - text: export RDTSC_FREQUENCY=2688
      - order: 2
+
+Salt Stop Master:
+  service.dead:
+    - name: salt-master
+
+Salt Stop Minion:
+  service.dead:
+    - name: salt-minion
